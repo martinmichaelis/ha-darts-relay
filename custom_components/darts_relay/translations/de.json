@@ -1,0 +1,112 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Darts Relay",
+        "description": "Adresse des Rechners, auf dem das Darts-Relais läuft.",
+        "data": {
+          "host": "Adresse",
+          "port": "Port"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Das Relais antwortet nicht. Stimmen Adresse und Port?"
+    },
+    "abort": {
+      "already_configured": "Dieses Relais ist schon eingerichtet."
+    }
+  },
+  "entity": {
+    "sensor": {
+      "active_player": {
+        "name": "Aktiver Spieler"
+      },
+      "mode": {
+        "name": "Spielmodus"
+      },
+      "variant": {
+        "name": "Variante"
+      },
+      "checkout_route": {
+        "name": "Checkout-Weg"
+      },
+      "checkout_kind": {
+        "name": "Checkout-Art"
+      },
+      "checkout_rest": {
+        "name": "Mein Rest"
+      },
+      "darts_left": {
+        "name": "Darts in der Aufnahme"
+      },
+      "average": {
+        "name": "Average"
+      },
+      "checkout_percent": {
+        "name": "Checkout-Quote"
+      },
+      "win_percent": {
+        "name": "Siegquote"
+      },
+      "best_leg_darts": {
+        "name": "Bestes Leg"
+      },
+      "best_checkout": {
+        "name": "Bester Checkout"
+      },
+      "playtime_today": {
+        "name": "Spielzeit heute"
+      },
+      "playtime_week": {
+        "name": "Spielzeit Woche"
+      },
+      "board_memory": {
+        "name": "Board-Speicher"
+      }
+    },
+    "binary_sensor": {
+      "playing": {
+        "name": "Spiel läuft"
+      },
+      "hub": {
+        "name": "Darts-Hub"
+      },
+      "board_manager": {
+        "name": "Board Manager"
+      },
+      "board": {
+        "name": "Großes Display"
+      },
+      "pixelit": {
+        "name": "8x32-Display"
+      },
+      "wled": {
+        "name": "WLED"
+      }
+    },
+    "event": {
+      "game_event": {
+        "name": "Spielereignis",
+        "state_attributes": {
+          "event_type": {
+            "state": {
+              "180": "180",
+              "bust": "Bust",
+              "high_finish": "High Finish",
+              "leg_started": "Leg gestartet",
+              "game_started": "Spiel gestartet",
+              "match_started": "Match gestartet",
+              "leg_won": "Leg gewonnen",
+              "game_won": "Spiel gewonnen",
+              "match_won": "Match gewonnen",
+              "bull_off": "Bull-off",
+              "player_changed": "Spielerwechsel",
+              "throw": "Wurf"
+            }
+          }
+        }
+      }
+    }
+  }
+}

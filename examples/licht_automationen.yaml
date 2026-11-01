@@ -1,0 +1,71 @@
+# In Home Assistant: Einstellungen > Automationen > Neu > YAML. Jede Automation einzeln einfuegen.
+# light.darts ersetzen, und 180 als Beispiel, weitere Typen: bust, high_finish, leg_won, match_won, match_started.
+
+- alias: "Darts: Licht dimmen beim Matchstart"
+  trigger:
+    - platform: event
+      event_type: darts_relay_event
+      event_data:
+        type: match_started
+  action:
+    - service: light.turn_on
+      target:
+        entity_id: light.darts
+      data:
+        brightness_pct: 40
+
+- alias: "Darts: Licht rot blinken bei einer 180"
+  mode: single
+  trigger:
+    - platform: event
+      event_type: darts_relay_event
+      event_data:
+        type: "180"
+  action:
+    - service: scene.create
+      data:
+        scene_id: darts_vorher
+        snapshot_entities:
+          - light.darts
+    - repeat:
+        count: 3
+        sequence:
+          - service: light.turn_on
+            target:
+              entity_id: light.darts
+            data:
+              rgb_color: [255, 0, 0]
+              brightness_pct: 100
+              transition: 0
+          - delay: "00:00:00.4"
+          - service: light.turn_off
+            target:
+              entity_id: light.darts
+          - delay: "00:00:00.3"
+    - service: scene.turn_on
+      target:
+        entity_id: scene.darts_vorher
+
+- alias: "Darts: Licht gruen beim Match-Sieg"
+  mode: single
+  trigger:
+    - platform: event
+      event_type: darts_relay_event
+      event_data:
+        type: match_won
+  action:
+    - service: scene.create
+      data:
+        scene_id: darts_vorher
+        snapshot_entities:
+          - light.darts
+    - service: light.turn_on
+      target:
+        entity_id: light.darts
+      data:
+        rgb_color: [0, 255, 0]
+        brightness_pct: 100
+    - delay: "00:00:05"
+    - service: scene.turn_on
+      target:
+        entity_id: scene.darts_vorher
