@@ -82,6 +82,13 @@ SENSORS = (
                            state_class=SensorStateClass.MEASUREMENT, suggested_display_precision=1),
     DartsSensorDescription(key="double_tendency", value=_ana("double", "tendency"),
                            attributes=lambda d: dict((d.get("analysis") or {}).get("double") or {})),
+    # Letztes Leg; der Verlauf (fuer Zeitstrahlen) steht als Attribut history = [[Zeit, Average, Darts, gewonnen], ...]
+    DartsSensorDescription(key="last_leg_average", value=lambda d: ((d.get("legs") or {}).get("last") or {}).get("average"),
+                           state_class=SensorStateClass.MEASUREMENT, suggested_display_precision=1,
+                           attributes=lambda d: dict(((d.get("legs") or {}).get("last") or {}), history=(d.get("legs") or {}).get("history") or [])),
+    DartsSensorDescription(key="last_leg_darts", value=lambda d: ((d.get("legs") or {}).get("last") or {}).get("darts"),
+                           state_class=SensorStateClass.MEASUREMENT,
+                           attributes=lambda d: {"won": ((d.get("legs") or {}).get("last") or {}).get("won")}),
     DartsSensorDescription(key="analysis_darts", value=lambda d: (d.get("analysis") or {}).get("darts_total"),
                            state_class=SensorStateClass.TOTAL, entity_category=EntityCategory.DIAGNOSTIC),
 )

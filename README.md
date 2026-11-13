@@ -16,6 +16,7 @@ Danach: Einstellungen, Geräte & Dienste, Integration hinzufügen, Darts Relay. 
 
 - Sensoren: aktiver Spieler, Spielmodus, Checkout-Weg, Rest, Darts der Aufnahme, Average, Quoten, Spielzeit
 - Wurfanalyse aus den Autodarts-Koordinaten: Trefferquote, Streuung und Tendenz auf der T20 (mm, rechts/links, hoch/tief), Doppel-Trefferquote, Fehlwürfe innen/außen/seitlich, Abweichung am Doppel und Quote je Doppel (Attribut `per_double`). Braucht ein Relais ab 13.11.2026 (`/api/wurfanalyse`).
+- Letztes Leg: Average und Darts als Sensoren, dazu der Verlauf der letzten 300 Legs als Attribut `history` (`[Zeit, Average, Darts, gewonnen]`), z. B. für Zeitstrahlen mit der ApexCharts-Karte.
 - Binärsensoren: Spiel läuft, Darts-Hub, Board Manager, großes Display, 8x32-Display, WLED
 - Ereignis-Entität und Bus-Ereignis `darts_relay_event` mit `type`: `180`, `bust`, `high_finish`, `leg_started`, `game_started`, `match_started`, `leg_won`, `game_won`, `match_won`, `bull_off`, `player_changed`, `throw`
 

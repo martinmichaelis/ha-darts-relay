@@ -105,6 +105,12 @@
       },
       "analysis_darts": {
         "name": "Ausgewertete Darts"
+      },
+      "last_leg_average": {
+        "name": "Letztes Leg Average"
+      },
+      "last_leg_darts": {
+        "name": "Letztes Leg Darts"
       }
     },
     "binary_sensor": {

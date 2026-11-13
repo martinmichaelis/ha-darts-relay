@@ -27,7 +27,9 @@ STATE = {"playing": True, "mode": "X01", "variant": "501", "active_player": "mam
                       "double": {"darts": 33, "hit_percent": 21.2, "miss_inside_percent": 38.5, "miss_outside_percent": 57.7,
                                  "miss_side_percent": 0.0, "bias_radial_mm": -0.4, "bias_side_mm": -18.4,
                                  "tendency": "Hoehe passt, eher gegen den Uhrzeigersinn",
-                                 "per_double": {"D16": {"darts": 7, "hits": 2, "hit_percent": 28.6}}}}}
+                                 "per_double": {"D16": {"darts": 7, "hits": 2, "hit_percent": 28.6}}}},
+         "legs": {"last": {"average": 56.4, "darts": 24, "won": True, "opponent": "bot", "time": 1794522900},
+                  "history": [[1794522000, 48.1, 30, 0], [1794522900, 56.4, 24, 1]]}}
 
 
 class FakeRelay:

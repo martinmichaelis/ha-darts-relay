@@ -105,6 +105,12 @@
       },
       "analysis_darts": {
         "name": "Analysed darts"
+      },
+      "last_leg_average": {
+        "name": "Last leg average"
+      },
+      "last_leg_darts": {
+        "name": "Last leg darts"
       }
     },
     "binary_sensor": {
