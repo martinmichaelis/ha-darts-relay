@@ -63,6 +63,48 @@
       },
       "board_memory": {
         "name": "Board memory"
+      },
+      "t20_hit_percent": {
+        "name": "T20 hit rate"
+      },
+      "t20_in_20_percent": {
+        "name": "T20 in segment 20"
+      },
+      "t20_spread": {
+        "name": "T20 spread"
+      },
+      "t20_bias_x": {
+        "name": "T20 offset right/left"
+      },
+      "t20_bias_y": {
+        "name": "T20 offset high/low"
+      },
+      "t20_tendency": {
+        "name": "T20 tendency"
+      },
+      "double_hit_percent": {
+        "name": "Double hit rate"
+      },
+      "double_miss_inside": {
+        "name": "Double misses inside"
+      },
+      "double_miss_outside": {
+        "name": "Double misses outside"
+      },
+      "double_miss_side": {
+        "name": "Double misses sideways"
+      },
+      "double_bias_radial": {
+        "name": "Double offset outside/inside"
+      },
+      "double_bias_side": {
+        "name": "Double offset clockwise"
+      },
+      "double_tendency": {
+        "name": "Double tendency"
+      },
+      "analysis_darts": {
+        "name": "Analysed darts"
       }
     },
     "binary_sensor": {

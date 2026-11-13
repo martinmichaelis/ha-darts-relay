@@ -53,6 +53,10 @@ async def test_entities(hass: HomeAssistant, relay) -> None:
     assert hass.states.get("binary_sensor.darts_game_running").state == "on"
     assert hass.states.get("binary_sensor.darts_8x32_display").state == "off"
     assert hass.states.get("sensor.darts_play_time_today").state == "41"
+    assert hass.states.get("sensor.darts_t20_hit_rate").state == "12.4"
+    assert hass.states.get("sensor.darts_t20_tendency").state == "mittig"
+    assert hass.states.get("sensor.darts_double_misses_outside").state == "57.7"
+    assert hass.states.get("sensor.darts_double_tendency").attributes["per_double"]["D16"]["hits"] == 2
     await hass.config_entries.async_unload(entry.entry_id)
 
 

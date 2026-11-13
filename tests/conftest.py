@@ -20,7 +20,14 @@ STATE = {"playing": True, "mode": "X01", "variant": "501", "active_player": "mam
          "stats": {"average": 45.6, "checkout_percent": 22.0, "win_percent": 65.0, "best_leg_darts": 15, "best_checkout": 126},
          "playtime": {"today_min": 41, "week_min": 192},
          "devices": {"hub": True, "board_manager": True, "board": True, "pixelit": False, "wled": True},
-         "board_memory": "12.4 KB (20:00)"}
+         "board_memory": "12.4 KB (20:00)",
+         "analysis": {"darts_total": 338,
+                      "t20": {"darts": 218, "hit_percent": 12.4, "in_20_percent": 68.8, "bias_x_mm": 3.1, "bias_y_mm": -2.6,
+                              "spread_mm": 21.8, "distance_mm": 22.1, "tendency": "mittig"},
+                      "double": {"darts": 33, "hit_percent": 21.2, "miss_inside_percent": 38.5, "miss_outside_percent": 57.7,
+                                 "miss_side_percent": 0.0, "bias_radial_mm": -0.4, "bias_side_mm": -18.4,
+                                 "tendency": "Hoehe passt, eher gegen den Uhrzeigersinn",
+                                 "per_double": {"D16": {"darts": 7, "hits": 2, "hit_percent": 28.6}}}}}
 
 
 class FakeRelay:
