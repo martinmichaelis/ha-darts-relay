@@ -7,6 +7,8 @@ SIGNAL_EVENT = "darts_relay_event_{}"
 POLL_WAIT = 25    # Sekunden, die das Relais auf ein Ereignis wartet
 POLL_TIMEOUT = 40
 RETRY_AFTER = 10
+STORAGE_VERSION = 1
+SAVE_DELAY = 60   # Sekunden: letzten Stand hoechstens so oft auf die Platte schreiben
 
 EVENT_TYPES = ["180", "bust", "high_finish", "leg_started", "game_started", "match_started", "leg_won", "game_won",
                "match_won", "bull_off", "player_changed", "throw"]

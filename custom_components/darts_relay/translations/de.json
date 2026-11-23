@@ -131,6 +131,9 @@
       },
       "wled": {
         "name": "WLED"
+      },
+      "relay_online": {
+        "name": "Relais erreichbar"
       }
     },
     "event": {
@@ -154,6 +157,11 @@
             }
           }
         }
+      }
+    },
+    "image": {
+      "hit_map": {
+        "name": "Trefferbild"
       }
     }
   }

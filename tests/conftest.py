@@ -40,6 +40,13 @@ class FakeRelay:
         self.changed = asyncio.Event()
         self.server = TestServer(web.Application())
         self.server.app.router.add_get("/ha", self.handle)
+        self.server.app.router.add_get("/api/wurfbild.png", self.image)
+        self.png = b"\x89PNG\r\n\x1a\n" + b"bild1"
+        self.image_calls = 0
+
+    async def image(self, request):
+        self.image_calls += 1
+        return web.Response(body=self.png, content_type="image/png")
 
     async def handle(self, request):
         after = request.query.get("after")

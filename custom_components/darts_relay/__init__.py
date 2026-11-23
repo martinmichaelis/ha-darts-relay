@@ -5,14 +5,14 @@ from homeassistant.core import HomeAssistant
 
 from .coordinator import DartsRelayCoordinator
 
-PLATFORMS = [Platform.BINARY_SENSOR, Platform.EVENT, Platform.SENSOR]
+PLATFORMS = [Platform.BINARY_SENSOR, Platform.EVENT, Platform.IMAGE, Platform.SENSOR]
 
 type DartsRelayConfigEntry = ConfigEntry[DartsRelayCoordinator]
 
 
 async def async_setup_entry(hass: HomeAssistant, entry: DartsRelayConfigEntry) -> bool:
     coordinator = DartsRelayCoordinator(hass, entry)
-    await coordinator.async_config_entry_first_refresh()
+    await coordinator.async_start()   # Relais oder gespeicherter Stand (Darts-PC aus)
     entry.runtime_data = coordinator
     await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)
     entry.async_create_background_task(hass, coordinator.async_listen(), "darts_relay_listen")
@@ -20,4 +20,5 @@ async def async_setup_entry(hass: HomeAssistant, entry: DartsRelayConfigEntry) -
 
 
 async def async_unload_entry(hass: HomeAssistant, entry: DartsRelayConfigEntry) -> bool:
+    await entry.runtime_data.async_save_now()
     return await hass.config_entries.async_unload_platforms(entry, PLATFORMS)
