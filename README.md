@@ -18,6 +18,7 @@ Danach: Einstellungen, Geräte & Dienste, Integration hinzufügen, Darts Relay. 
 - Wurfanalyse aus den Autodarts-Koordinaten: Trefferquote, Streuung und Tendenz auf der T20 (mm, rechts/links, hoch/tief), Doppel-Trefferquote, Fehlwürfe innen/außen/seitlich, Abweichung am Doppel und Quote je Doppel (Attribut `per_double`). Braucht ein Relais ab 13.11.2026 (`/api/wurfanalyse`).
 - Letztes Leg: Average und Darts als Sensoren, dazu der Verlauf der letzten 300 Legs als Attribut `history` (`[Zeit, Average, Darts, gewonnen]`), z. B. für Zeitstrahlen mit der ApexCharts-Karte.
 - Binärsensoren: Spiel läuft, Relais erreichbar, Darts-Hub, Board Manager, großes Display, 8x32-Display, WLED
+- 180er laut Autodarts-Statistik (ab 0.4.1): Gesamtzahl mit Attribut `days` (`[["2026-11-23", 1], ...]`) und Tag der letzten 180
 - Trefferbild der Wurfanalyse als Bild-Entität (ab 0.4.0), gespeichert unter `/config/darts_relay/`
 - Ab 0.4.0 bleibt der letzte Stand erhalten, wenn der Darts-PC aus ist (auch nach einem Neustart von Home Assistant): Statistik, Wurfanalyse, Leg-Verlauf und Trefferbild zeigen den letzten Wert, nur die Live-Werte (Spiel läuft, aktiver Spieler, Checkout-Weg, Geräte) werden leer. Das Attribut `stand` von „Relais erreichbar“ sagt, von wann die Werte sind.
 - Ereignis-Entität und Bus-Ereignis `darts_relay_event` mit `type`: `180`, `bust`, `high_finish`, `leg_started`, `game_started`, `match_started`, `leg_won`, `game_won`, `match_won`, `bull_off`, `player_changed`, `throw`

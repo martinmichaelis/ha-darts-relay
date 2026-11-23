@@ -1,6 +1,7 @@
 """Sensoren: Spiel, Checkout-Weg, Statistik, Spielzeit."""
 from collections.abc import Callable
 from dataclasses import dataclass
+from datetime import date
 from typing import Any
 
 from homeassistant.components.sensor import SensorDeviceClass, SensorEntity, SensorEntityDescription, SensorStateClass
@@ -26,6 +27,14 @@ def _ana(part: str, key: str) -> Callable[[dict], Any]:
 
 
 MM = "mm"
+
+
+def _last_180(d: dict) -> date | None:
+    """Tag der letzten 180 laut Autodarts-Statistik (ab Relais 23.11.2026)."""
+    try:
+        return date.fromisoformat((d.get("t180") or {}).get("last") or "")
+    except ValueError:
+        return None
 
 
 @dataclass(frozen=True, kw_only=True)
@@ -89,6 +98,12 @@ SENSORS = (
     DartsSensorDescription(key="last_leg_darts", value=lambda d: ((d.get("legs") or {}).get("last") or {}).get("darts"),
                            state_class=SensorStateClass.MEASUREMENT,
                            attributes=lambda d: {"won": ((d.get("legs") or {}).get("last") or {}).get("won")}),
+    # 180er laut Autodarts (Profil und Tagesgrafik, alle 30 Minuten aktualisiert); days = [["2026-11-23", 1], ...]
+    DartsSensorDescription(key="total_180s", value=lambda d: (d.get("t180") or {}).get("total"),
+                           state_class=SensorStateClass.TOTAL_INCREASING,
+                           attributes=lambda d: {"days": (d.get("t180") or {}).get("days") or [],
+                                                 "since": (d.get("t180") or {}).get("since")}),
+    DartsSensorDescription(key="last_180", value=_last_180, device_class=SensorDeviceClass.DATE),
     DartsSensorDescription(key="analysis_darts", value=lambda d: (d.get("analysis") or {}).get("darts_total"),
                            state_class=SensorStateClass.TOTAL, entity_category=EntityCategory.DIAGNOSTIC),
 )

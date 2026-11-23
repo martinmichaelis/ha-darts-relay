@@ -111,6 +111,12 @@
       },
       "last_leg_darts": {
         "name": "Letztes Leg Darts"
+      },
+      "total_180s": {
+        "name": "180er gesamt"
+      },
+      "last_180": {
+        "name": "Letzte 180"
       }
     },
     "binary_sensor": {

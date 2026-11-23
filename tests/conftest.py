@@ -29,7 +29,8 @@ STATE = {"playing": True, "mode": "X01", "variant": "501", "active_player": "mam
                                  "tendency": "Hoehe passt, eher gegen den Uhrzeigersinn",
                                  "per_double": {"D16": {"darts": 7, "hits": 2, "hit_percent": 28.6}}}},
          "legs": {"last": {"average": 56.4, "darts": 24, "won": True, "opponent": "bot", "time": 1794522900},
-                  "history": [[1794522000, 48.1, 30, 0], [1794522900, 56.4, 24, 1]]}}
+                  "history": [[1794522000, 48.1, 30, 0], [1794522900, 56.4, 24, 1]]},
+         "t180": {"total": 18, "days": [["2026-11-18", 1], ["2026-11-23", 1]], "last": "2026-11-23", "since": "2026-07-30"}}
 
 
 class FakeRelay:
