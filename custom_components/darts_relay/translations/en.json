@@ -117,6 +117,18 @@
       },
       "last_180": {
         "name": "Last 180"
+      },
+      "training_170_last": {
+        "name": "170 checkout last"
+      },
+      "training_170_best": {
+        "name": "170 checkout best"
+      },
+      "training_jdc_last": {
+        "name": "JDC challenge last"
+      },
+      "training_jdc_best": {
+        "name": "JDC challenge best"
       }
     },
     "binary_sensor": {

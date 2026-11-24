@@ -30,7 +30,12 @@ STATE = {"playing": True, "mode": "X01", "variant": "501", "active_player": "mam
                                  "per_double": {"D16": {"darts": 7, "hits": 2, "hit_percent": 28.6}}}},
          "legs": {"last": {"average": 56.4, "darts": 24, "won": True, "opponent": "bot", "time": 1794522900},
                   "history": [[1794522000, 48.1, 30, 0], [1794522900, 56.4, 24, 1]]},
-         "t180": {"total": 18, "days": [["2026-11-18", 1], ["2026-11-23", 1]], "last": "2026-11-23", "since": "2026-07-30"}}
+         "t180": {"total": 18, "days": [["2026-11-18", 1], ["2026-11-23", 1]], "last": "2026-11-23", "since": "2026-07-30"},
+         "training": {"c170": {"count": 2, "best": 4, "last": 3, "last_rounds": 10, "last_darts": 9, "last_avg_darts": 6.3,
+                               "last_time": "2026-11-24T13:40:00",
+                               "history": [["2026-11-24T12:00:00", 4, 10, 9, 5.5], ["2026-11-24T13:40:00", 3, 10, 9, 6.3]]},
+                      "jdc": {"count": 1, "best": 812, "last": 812, "last_parts": [301, 250, 261], "last_time": "2026-11-24T14:00:00",
+                              "average10": 812, "history": [["2026-11-24T14:00:00", 812, 301, 250, 261]]}}}
 
 
 class FakeRelay:

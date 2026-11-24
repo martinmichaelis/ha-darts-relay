@@ -37,6 +37,11 @@ def _last_180(d: dict) -> date | None:
         return None
 
 
+def _tr(game: str, key: str) -> Callable[[dict], Any]:
+    """Trainingsspiele des Relais (170 Checkout, JDC Challenge; ab Relais 24.11.2026)."""
+    return lambda d: ((d.get("training") or {}).get(game) or {}).get(key)
+
+
 @dataclass(frozen=True, kw_only=True)
 class DartsSensorDescription(SensorEntityDescription):
     value: Callable[[dict], Any]
@@ -104,6 +109,19 @@ SENSORS = (
                            attributes=lambda d: {"days": (d.get("t180") or {}).get("days") or [],
                                                  "since": (d.get("t180") or {}).get("since")}),
     DartsSensorDescription(key="last_180", value=_last_180, device_class=SensorDeviceClass.DATE),
+    # Eigene Trainingsspiele des Relais (ab 0.4.2): letztes Ergebnis mit Verlauf als Attribut history, Bestwert
+    DartsSensorDescription(key="training_170_last", value=_tr("c170", "last"), native_unit_of_measurement="Checkouts",
+                           state_class=SensorStateClass.MEASUREMENT,
+                           attributes=lambda d: {"rounds": _tr("c170", "last_rounds")(d), "darts_per_round": _tr("c170", "last_darts")(d),
+                                                 "avg_darts": _tr("c170", "last_avg_darts")(d), "time": _tr("c170", "last_time")(d),
+                                                 "count": _tr("c170", "count")(d), "history": _tr("c170", "history")(d) or []}),
+    DartsSensorDescription(key="training_170_best", value=_tr("c170", "best"), native_unit_of_measurement="Checkouts"),
+    DartsSensorDescription(key="training_jdc_last", value=_tr("jdc", "last"), native_unit_of_measurement="Punkte",
+                           state_class=SensorStateClass.MEASUREMENT,
+                           attributes=lambda d: {"parts": _tr("jdc", "last_parts")(d), "time": _tr("jdc", "last_time")(d),
+                                                 "average10": _tr("jdc", "average10")(d), "count": _tr("jdc", "count")(d),
+                                                 "history": _tr("jdc", "history")(d) or []}),
+    DartsSensorDescription(key="training_jdc_best", value=_tr("jdc", "best"), native_unit_of_measurement="Punkte"),
     DartsSensorDescription(key="analysis_darts", value=lambda d: (d.get("analysis") or {}).get("darts_total"),
                            state_class=SensorStateClass.TOTAL, entity_category=EntityCategory.DIAGNOSTIC),
 )

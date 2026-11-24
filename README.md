@@ -19,6 +19,7 @@ Danach: Einstellungen, Geräte & Dienste, Integration hinzufügen, Darts Relay. 
 - Letztes Leg: Average und Darts als Sensoren, dazu der Verlauf der letzten 300 Legs als Attribut `history` (`[Zeit, Average, Darts, gewonnen]`), z. B. für Zeitstrahlen mit der ApexCharts-Karte.
 - Binärsensoren: Spiel läuft, Relais erreichbar, Darts-Hub, Board Manager, großes Display, 8x32-Display, WLED
 - 180er laut Autodarts-Statistik (ab 0.4.1): Gesamtzahl mit Attribut `days` (`[["2026-11-23", 1], ...]`) und Tag der letzten 180
+- Eigene Trainingsspiele des Relais (ab 0.4.2, Seite `/training`): 170 Checkout und JDC Challenge, je letztes Ergebnis mit Verlauf als Attribut `history` und Bestwert
 - Trefferbild der Wurfanalyse als Bild-Entität (ab 0.4.0), gespeichert unter `/config/darts_relay/`
 - Ab 0.4.0 bleibt der letzte Stand erhalten, wenn der Darts-PC aus ist (auch nach einem Neustart von Home Assistant): Statistik, Wurfanalyse, Leg-Verlauf und Trefferbild zeigen den letzten Wert, nur die Live-Werte (Spiel läuft, aktiver Spieler, Checkout-Weg, Geräte) werden leer. Das Attribut `stand` von „Relais erreichbar“ sagt, von wann die Werte sind.
 - Ereignis-Entität und Bus-Ereignis `darts_relay_event` mit `type`: `180`, `bust`, `high_finish`, `leg_started`, `game_started`, `match_started`, `leg_won`, `game_won`, `match_won`, `bull_off`, `player_changed`, `throw`
